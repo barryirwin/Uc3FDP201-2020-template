@@ -3,35 +3,58 @@
 
 %% changelog
 %% version 0.1 Initial release 
+
+%% TODO
+% twosideed rendering
+
+
+
+%---------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nucthesis}[2007/09/15 Noroff University College Thesis Class]
+
+\newcommand{\NUCLogo}{images/NoroffUClogoH.jpg}
+% we are based off the core report class
+\LoadClass[12pt, a4paper]{report}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{graphicx}
 \RequirePackage{url}
 
-\RequirePackage{fancybox}
-
-\RequirePackage{fancyhdr}
 
 
+%page Setup - DO NOT ALTER
 \RequirePackage{geometry}
 \geometry{left=25mm,right=25mm,bindingoffset=0mm, top=20mm,bottom=35mm}
+% disabled due to need for two side render
+% \SetMargins{2cm}{true}{true}
 
+%% packages dealing with layout
+\RequirePackage{fancybox}
+\RequirePackage{fancyhdr}
 \RequirePackage{parskip} % Set to not have indented paras
 
+%% some other useful components
 \RequirePackage{calc}
 \RequirePackage{ifthen}
 \RequirePackage{setspace}
+%\RequirePackage{acmart} %% required for ACM CCS - see https://www.acm.org/publications/class-2012
+
+\RequirePackage[english]{babel} % set UK spelling.
 
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
-% we are based off the core report class
-\LoadClass[12pt, a4paper]{report}
+%% define the title - depricated, dealt with below
+%\newcommand{\nuctitle}[1]{\title{%
+%   \includegraphics[width=.5\textwidth]{\NUCLogo}\vspace{5cm}%
+%  % \\[1cm]
+%  \\{#1}}
+%}
 
-\newcommand{\Degree}{Doctor of Philosophy of Science}
+
+%\newcommand{\Degree}{Doctor of Philosophy of Science}
 \newcommand{\DegType}{fulfilment}
 \newcommand{\degree}[1]{\renewcommand{\Degree}{#1}}
 \newcommand{\partdegree}[1]{\renewcommand{\Degree}{#1} \renewcommand{\DegType}{partial fulfilment}}
@@ -60,9 +83,12 @@
 	\onehalfspacing
 }
 
+%rename Bibliography to references when using bibtex
 \renewcommand\bibname{References}
+% set some full details
+\newcommand\ackname{Acknowledgements}
  
-\SetMargins{2cm}{true}{true}
+
 
 \renewcommand{\headrulewidth}{\iffloatpage{0pt}{0.4pt}}
 \pagestyle{fancy}
@@ -78,14 +104,14 @@
 \renewcommand{\maketitle}{%
 	\begin{titlepage}%
 	\begin{center}%
-	\ifthenelse{\boolean{\Logo}}{\includegraphics[scale=0.75]{ru}\vfill}{\vspace*{\fill}}%
+	\ifthenelse{\boolean{\Logo}}{\includegraphics[scale=0.75]{\NUCLogo}\vfill}{\vspace*{\fill}}%
 	\ifthenelse{\boolean{\TitleBox}}{
 	\Ovalbox{\begin{minipage}[c][\height + 6cm][c]{(\textwidth * 3) / 4}\begin{center}%
 	\vspace*{\fill}\LARGE\textsc{\@title}%
 	\large\vfill%
 	Submitted in \DegType\\%
 	of the requirements of the degree of\vskip 0.5em\textsc{\Degree}\vskip 0.5em%
-	of Rhodes University%
+	of Noroff University College%
 	\vfill\Large\@author\vspace*{\fill}%
 	\end{center}\end{minipage}}}{%
 
@@ -94,12 +120,12 @@
 	\large\vfill%
 	Submitted in \DegType\\%
 	of the requirements of the degree of\vskip 0.5em\textsc{\Degree}\vskip 0.5em%
-	of Rhodes University%
+	of Noroff University College%
 	\vfill\Large\@author\vspace*{\fill}%
 	\end{center}}%
 
 	\vfill\normalsize%
-	\emph{Grahamstown, South Africa}\\%
+	\emph{Kristiansand, Norway}\\%
 %	\ifcase\month\or
 %  January\or February\or March\or April\or May\or June\or
 %  July\or August\or September\or October\or November\or December\fi
@@ -109,7 +135,6 @@
 	\end{titlepage}%
 }
 
-\newcommand\ackname{Acknowledgements}
 
 \if@titlepage
   \newenvironment{ack}{%

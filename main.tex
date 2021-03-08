@@ -1,49 +1,97 @@
 \documentclass{nucthesis}
 
-%\geometry{verbose,tmargin=2cm,bmargin=2.5cm,lmargin=2.0cm,rmargin=2.0cm}
+
+%% CONFIGURATION
+
+%% define your degree by uncommenting the correct line
+\newcommand{\Degree}{Bachelor in Cyber Security}
+%\newcommand{\Degree}{Bachelor in Digital Forensics}
+%\newcommand{\Degree}{Bachelor in Applied Data Science}
+
+\newcommand{\myname}{A.N.Other}
+\newcommand{\mytitle}{My super awesome title}
 
 
 
 %disable when implementing this generate space filling text
 \usepackage{lipsum}
 
-\title{%
-   \includegraphics[width=.5\textwidth]{images/NoroffUClogoH.jpg} 
-   \vspace{5cm}
-  % \\[1cm]
-  \\Uc3FDP201-2020-template}
-\author{Barry Irwin}
-\date{March 2021}
+%\title{%
+%   \includegraphics[width=.5\textwidth]{images/NoroffUClogoH.jpg} 
+%   \vspace{5cm}
+%  % \\[1cm]
+%  \\\mytitle}
+%% -------  START Title Page -------------
+\title{\mytitle}
+\author{\myname}
+\date{\today}
 
 \begin{document}
 
 \maketitle
+\titlepage
 \thispagestyle{empty} 
-
-
+%% -------  END Title Page -------------
+%% -------  START Frontmatter ----------
 \pagenumbering{roman}
 \begin{abstract}
-    \lipsum
+    
 \end{abstract}
+\chapter*{ACM Classification}
+%% This section includes a classification of your research domain as used by the ACM CCS - see https://www.acm.org/publications/class-2012
+%% generate your code at: https://dl.acm.org/ccs and pase below
+%\begin{CCSXML}
+%<ccs2012>
+%<concept>
+%<concept_id>10010583</concept_id>
+%<concept_desc>Hardware</concept_desc>
+%<concept_significance>500</concept_significance>
+%</concept>
+%</ccs2012>
+%\end{CCSXML}
+\printccsdesc
+\ccsdesc[500]{Hardware}
 \chapter*{Acknowledgements}
-\lipsum
+
 %\noindent\rule[0.5ex]{1\columnwidth}{1pt}
 \tableofcontents{}
-\linespread{1.1}
+\newpage
+\listoffigures{}
+\newpage
+\listoftables{}
+\newpage
+
+%% -------  END Frontmatter ----------
+%% -------  START Document Body ----------
+\linespread{1.5} %% 1.5 spacing for document body
 \pagenumbering{arabic}
+%%% Add in body content or chapters here.
+%%  a standard report structure has the following chapters.  
+%%  IF you need to deviate from these you must discuss with your supervisor.
 \chapter{Introduction}
 
 \chapter{Literature Review}
-\lipsum
+
 \chapter{Analysis/Implementation}
-\lipsum
+
 \chapter{Results}
-\lipsum
+
 \chapter{Conclusion}
-\lipsum
-%% you could also keep each chapter in a separate file and include them here
-\input{ch1/introduction}
 
+\section{Future Work}
+%% you could also keep each chapter in a separate file and include them here:
+%\input{ch1/introduction}
+%% This is recommended for making your life easier managing each chapter and any images related to it -- see the ch1 example directory.
 
+%% ------ END Document Body ----------
+%% -------  START References ----------
+%% References
+%% -------  END References ----------
 
+%% -------  START Appendices ----------
+%% appendices contain additional material and are numbered A, B, C etc beyond this point
+%% you can use \chapter to differentiate them. Comment these out if not needed
+\appendix
+\chapter{Sample Appendix}
+%% -------  END Appendices ----------
 \end{document}

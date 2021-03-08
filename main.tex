@@ -1,24 +1,25 @@
 %% define your degree by using the code CSE, DFO or ADS below
-\documentclass[DFO]{nucthesis}
+\documentclass[CSE]{nucthesis}
 %% optimises document for double sided printing.
 %\documentclass[twoside]{nucthesis} % adds 10mm extra for binding
 
 
-
 %% CONFIGURATION
-
-
-
 \newcommand{\myname}{A.N.Other}
 \newcommand{\mytitle}{My super awesome title}
 
 %% ======= BEGIN PACKAGES==
 %% some of these packages may be useful for you
 \usepackage{subfig}   % used for sub-figures
+%\usepackage{lipsum}  %disable when implementing this generate space filling text
+%\usepackage{todonotes} % https://ctan.org/pkg/todonotes?lang=en make notes for yourself and supervisor
+\usepackage{wrapfig}  % allows text wrapping around figures
+%\usepackage{tabularx} % tables with adjustable width columns
+%\usepackage{tablefootnote}
+%\usepackage{booktabs} % makes pretty tables (needs to be used explicitly) https://ctan.org/pkg/booktabs?lang=en
 
-
-\usepackage{lipsum}  %disable when implementing this generate space filling text
-
+%\usepackage{lettrine} % BIG FIRST CHAPTER LETTER
+%\usepackage{quotchap}
 
 %% -------  START Title Page -------------
 \title{\mytitle}
@@ -31,14 +32,14 @@
 \titlepage
 \thispagestyle{empty} 
 %% -------  END Title Page -------------
-%% -------  START Frontmatter ----------
+%% -------  START Front matter ----------
 \pagenumbering{roman}
 \begin{abstract}
     
 \end{abstract}
 %\chapter*{ACM Classification}
 %% This section includes a classification of your research domain as used by the ACM CCS - see https://www.acm.org/publications/class-2012
-%% generate your code at: https://dl.acm.org/ccs and pase below
+%% generate your code at: https://dl.acm.org/ccs and paste below
 %\begin{CCSXML}
 %<ccs2012>
 %<concept>
@@ -62,6 +63,7 @@
 \listoftables{}
 \newpage
 
+
 %% -------  END Frontmatter ----------
 %% -------  START Document Body ----------
 \linespread{1.5} %% 1.5 spacing for document body
@@ -72,7 +74,8 @@
 \chapter{Introduction}
 
 \chapter{Literature Review}
-
+%This is an example of using todonotes
+%\todo{I need to write this!}
 \chapter{Analysis/Implementation}
 \begin{figure}[h!]%
     \centering

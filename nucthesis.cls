@@ -18,7 +18,9 @@
 \DeclareOption{DFO}{\renewcommand{\Degree}{Bachelor in Digital Forensics}} 
 \DeclareOption{ADS}{\renewcommand{\Degree}{Bachelor in Applied Data Science} }
 
-\ProcessOptions
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
+\ProcessOptions\relax
+%\ProcessOptions
 % we are based off the core report class
 \if@twoside%
     \LoadClass[12pt, a4paper, twoside]{report} %% twoside=true
@@ -47,6 +49,7 @@
 % \SetMargins{2cm}{true}{true}
 
 %% packages dealing with layout
+\RequirePackage{color}
 \RequirePackage{fancybox}
 \RequirePackage{fancyhdr}
 \RequirePackage[parfill]{parskip} %Sets full justification and paragraph spacing} 
@@ -58,7 +61,8 @@
 %\RequirePackage{acmart} %% required for ACM CCS - see https://www.acm.org/publications/class-2012
 
 \RequirePackage[english]{babel} % set UK spelling.
-
+\RequirePackage[autostyle]{csquotes}
+\MakeOuterQuote{"} %prevents backwards quote symbols
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax

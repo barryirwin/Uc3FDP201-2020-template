@@ -13,9 +13,19 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nucthesis}[2007/09/15 Noroff University College Thesis Class]
 
+\newcommand{\Degree}{Bachelor of Interpretive Dance} %% default
+\DeclareOption{CSE}{\renewcommand{\Degree}{Bachelor in Cyber Security}}
+\DeclareOption{DFO}{\renewcommand{\Degree}{Bachelor in Digital Forensics}} 
+\DeclareOption{ADS}{\renewcommand{\Degree}{Bachelor in Applied Data Science} }
 
+\ProcessOptions
 % we are based off the core report class
-\LoadClass[12pt, a4paper]{report}
+\if@twoside%
+    \LoadClass[12pt, a4paper, twoside]{report} %% twoside=true
+\else%
+    \LoadClass[12pt, a4paper]{report} %% twoside=false
+\fi%
+
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{graphicx}
@@ -68,10 +78,21 @@
 \newcommand{\NUCLogo}{images/NoroffUClogoH.jpg}
 
 %\newcommand{\Degree}{Doctor of Philosophy of Science}
-\newcommand{\DegType}{fulfilment}
-\newcommand{\degree}[1]{\renewcommand{\Degree}{#1}}
-\newcommand{\partdegree}[1]{\renewcommand{\Degree}{#1} \renewcommand{\DegType}{partial fulfilment}}
-\newcommand{\fulldegree}[1]{\renewcommand{\Degree}{#1} \renewcommand{\DegType}{partial fulfilment}}
+%\newcommand{\Degree}{Bachelor of Interpretive Dance} %% default
+%\newcommand{\mydeg}{Bachelor in Cyber Security}
+%\newcommand{\Degree}{Bachelor in Digital Forensics}
+%\newcommand{\Degree}{Bachelor in Applied Data Science}
+
+%\ifthenelse{\equal{\mydegree}{"CSE"}}{\renewcommand{\Degree}{Bachelor in Cyber Security}}{}
+%\ifthenelse{ree \equal DFO}{\renewcommand{\Degree}{Bachelor in Digital Forensics}}
+%\ifthenelse{gree \equal ADS}{\renewcommand{\Degree}{Bachelor in Applied Data Science}}
+
+
+%disabled till we have alternate types
+\newcommand{\DegType}{partial fulfilment}
+%\newcommand{\degree}[1]{\renewcommand{\Degree}{#1}}
+%\newcommand{\partdegree}[1]{\renewcommand{\Degree}{#1} \renewcommand{\DegType}{partial fulfilment}}
+%\newcommand{\fulldegree}[1]{\renewcommand{\Degree}{#1} \renewcommand{\DegType}{partial fulfilment}}
 \newcommand{\TitleBox}{false}
 \newcommand{\titlebox}[1]{\renewcommand{\TitleBox}{#1}}
 \newcommand{\Logo}{true}

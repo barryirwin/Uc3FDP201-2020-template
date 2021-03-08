@@ -20,7 +20,8 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{graphicx}
 \RequirePackage{url}
-
+\usepackage{hyperref} % There are lots of options that can be added here. RTFM - https://ctan.org/pkg/hyperref?lang=en
+\RequirePackage{doi} % hyperlinks DOI's in refs
 
 
 %page Setup - DO NOT ALTER
@@ -32,7 +33,7 @@
 %% packages dealing with layout
 \RequirePackage{fancybox}
 \RequirePackage{fancyhdr}
-\RequirePackage{parskip} % Set to not have indented paras
+\RequirePackage[parfill]{parskip} %Sets full justification and paragraph spacing} 
 
 %% some other useful components
 \RequirePackage{calc}
@@ -46,12 +47,18 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 
-%% define the title - depricated, dealt with below
-%\newcommand{\nuctitle}[1]{\title{%
-%   \includegraphics[width=.5\textwidth]{\NUCLogo}\vspace{5cm}%
-%  % \\[1cm]
-%  \\{#1}}
-%}
+
+%% define Hyperref  details here
+\hypersetup{
+	colorlinks=true, %set true if you want coloured links
+	linktoc=all,     %set to all if you want both sections and subsections linked
+	linkcolor=black,  %choose some color if you want links to stand out	
+	citecolor=black,
+%	citecolor=blue,
+    filecolor=blue,      
+    urlcolor=blue, % ULRS via \url and \hyperref
+}
+	
 
 
 %\newcommand{\Degree}{Doctor of Philosophy of Science}

@@ -1,0 +1,49 @@
+\documentclass{nucthesis}
+
+%\geometry{verbose,tmargin=2cm,bmargin=2.5cm,lmargin=2.0cm,rmargin=2.0cm}
+
+
+
+%disable when implementing this generate space filling text
+\usepackage{lipsum}
+
+\title{%
+   \includegraphics[width=.5\textwidth]{images/NoroffUClogoH.jpg} 
+   \vspace{5cm}
+  % \\[1cm]
+  \\Uc3FDP201-2020-template}
+\author{Barry Irwin}
+\date{March 2021}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty} 
+
+
+\pagenumbering{roman}
+\begin{abstract}
+    \lipsum
+\end{abstract}
+\chapter*{Acknowledgements}
+\lipsum
+%\noindent\rule[0.5ex]{1\columnwidth}{1pt}
+\tableofcontents{}
+\linespread{1.1}
+\pagenumbering{arabic}
+\chapter{Introduction}
+
+\chapter{Literature Review}
+\lipsum
+\chapter{Analysis/Implementation}
+\lipsum
+\chapter{Results}
+\lipsum
+\chapter{Conclusion}
+\lipsum
+%% you could also keep each chapter in a separate file and include them here
+\input{ch1/introduction}
+
+
+
+\end{document}

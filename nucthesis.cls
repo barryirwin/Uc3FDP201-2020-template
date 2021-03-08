@@ -229,3 +229,43 @@
       \fi}
       {\if@twocolumn\else\endquotation\fi}
 \fi
+
+
+%% code for handling word counts
+\newcommand{\detailtexcount}[1]{%
+  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }%
+  \verbatiminput{#1.wcdetail}%
+}
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum} words%
+}
+
+\newcommand{\quickwordcountnoref}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex  > #1-words.sum }%
+  \input{#1-words.sum} words%
+}
+
+\newcommand{\noroffcount}[1]{%
+  \immediate\write18{texcount -v0 -q -total  -sum -merge -q #1.tex > #1-words.noroff }%
+  \input{#1-words.noroff} %
+}
+%
+%Words with Refs:\quickwordcount{main}
+%
+%Words Without refs: \quickwordcountnoref{main}
+
+\newcommand{\NUCwordcount}[1]{
+    \chapter*{NUC Wordcounts}
+    \framebox{%
+    \begin{minipage}{0.9\textwidth}
+    \textbf{Noroff Word Count}:\\
+    \noroffcount{#1}
+    \end{minipage}}
+}
+
+
+
+%Details \\
+%\detailtexcount{main}

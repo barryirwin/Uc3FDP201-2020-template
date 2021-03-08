@@ -1,9 +1,12 @@
 \documentclass{nucthesis}
+%% optimises document for double sided printing.
+%\documentclass[twoside]{nucthesis} % adds 10mm extra for binding
+
 
 
 %% CONFIGURATION
 
-%% define your degree by uncommenting the correct line
+%% define your degree by commenting out the lines that do not apply below
 \newcommand{\Degree}{Bachelor in Cyber Security}
 %\newcommand{\Degree}{Bachelor in Digital Forensics}
 %\newcommand{\Degree}{Bachelor in Applied Data Science}
@@ -11,16 +14,14 @@
 \newcommand{\myname}{A.N.Other}
 \newcommand{\mytitle}{My super awesome title}
 
+%% ======= BEGIN PACKAGES==
+%% some of these packages may be useful for you
+\usepackage{subfig}   % used for sub-figures
 
 
-%disable when implementing this generate space filling text
-\usepackage{lipsum}
+\usepackage{lipsum}  %disable when implementing this generate space filling text
 
-%\title{%
-%   \includegraphics[width=.5\textwidth]{images/NoroffUClogoH.jpg} 
-%   \vspace{5cm}
-%  % \\[1cm]
-%  \\\mytitle}
+
 %% -------  START Title Page -------------
 \title{\mytitle}
 \author{\myname}
@@ -75,9 +76,21 @@
 \chapter{Literature Review}
 
 \chapter{Analysis/Implementation}
-
+\begin{figure}[h!]%
+    \centering
+    \subfloat[sample1]{\includegraphics[width=3cm]{\NUCLogo } }%
+    \subfloat[sample2]{\includegraphics[width=4cm]{\NUCLogo } }%
+    \caption{sample figs}%
+    \label{fig:samplefigs}%
+\end{figure}
 \chapter{Results}
-
+\begin{figure}[h!]%
+    \centering
+    \subfloat[sample1]{\includegraphics[width=3cm]{\NUCLogo} }%
+    \subfloat[sample2]{\includegraphics[width=4cm]{\NUCLogo} }%
+    \caption{sample figs2}%
+    \label{fig:samplefigs2}%
+\end{figure}
 \chapter{Conclusion}
 
 \section{Future Work}

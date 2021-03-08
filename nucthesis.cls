@@ -13,20 +13,26 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{nucthesis}[2007/09/15 Noroff University College Thesis Class]
 
-\newcommand{\NUCLogo}{images/NoroffUClogoH.jpg}
+
 % we are based off the core report class
 \LoadClass[12pt, a4paper]{report}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{graphicx}
-\RequirePackage{url}
+
+\RequirePackage[hyphens]{url} % make sure to split on hyphens for urls
 \usepackage{hyperref} % There are lots of options that can be added here. RTFM - https://ctan.org/pkg/hyperref?lang=en
 \RequirePackage{doi} % hyperlinks DOI's in refs
 
 
 %page Setup - DO NOT ALTER
 \RequirePackage{geometry}
-\geometry{left=25mm,right=25mm,bindingoffset=0mm, top=20mm,bottom=35mm}
+    \if@twoside%
+        \geometry{left=25mm,right=25mm,bindingoffset=10mm, top=20mm,bottom=35mm} %% twoside=true
+    \else%
+        \geometry{left=25mm,right=25mm,bindingoffset=0mm, top=20mm,bottom=35mm} %% twoside=false
+    \fi%
+
 % disabled due to need for two side render
 % \SetMargins{2cm}{true}{true}
 
@@ -59,7 +65,7 @@
     urlcolor=blue, % ULRS via \url and \hyperref
 }
 	
-
+\newcommand{\NUCLogo}{images/NoroffUClogoH.jpg}
 
 %\newcommand{\Degree}{Doctor of Philosophy of Science}
 \newcommand{\DegType}{fulfilment}

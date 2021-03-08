@@ -1,5 +1,5 @@
 %% define your degree by using the code CSE, DFO or ADS below
-\documentclass[CSE]{nucthesis}
+\documentclass[DFO]{nucthesis}
 %% optimises document for double sided printing.
 %\documentclass[twoside]{nucthesis} % adds 10mm extra for binding
 
@@ -7,6 +7,9 @@
 %% CONFIGURATION
 \newcommand{\myname}{A.N.Other}
 \newcommand{\mytitle}{My super awesome title}
+%if you want to change your location form Kristandand, Norway edit the following:
+%\renewcommand{\mylocation}{Hobbiton, The Shire}
+
 
 %% ======= BEGIN PACKAGES==
 %% some of these packages may be useful for you
@@ -18,8 +21,7 @@
 %\usepackage{tablefootnote}
 %\usepackage{booktabs} % makes pretty tables (needs to be used explicitly) https://ctan.org/pkg/booktabs?lang=en
 
-%\usepackage{lettrine} % BIG FIRST CHAPTER LETTER
-%\usepackage{quotchap}
+
 
 %% -------  START Title Page -------------
 \title{\mytitle}
@@ -33,6 +35,7 @@
 \thispagestyle{empty} 
 %% -------  END Title Page -------------
 %% -------  START Front matter ----------
+\plagdeclaration
 \pagenumbering{roman}
 \begin{abstract}
     

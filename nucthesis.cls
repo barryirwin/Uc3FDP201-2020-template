@@ -1,17 +1,20 @@
 %% Noroff university College Thesis Style file
-%% derived from  RU Computer Science Class  2010
+%% Inspired by   RU Computer Science Class  2010
+%% (c) Barry Irwin 2021
 
 %% changelog
 %% version 0.1 Initial release 
 
 %% TODO
-% twosideed rendering
+% Add wordcount
+% Add disclaimer
+% Fix citation/style
 
 
 
 %---------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{nucthesis}[2007/09/15 Noroff University College Thesis Class]
+\ProvidesClass{nucthesis}[2021/03/08 Noroff University College Thesis Class]
 
 \newcommand{\Degree}{Bachelor of Interpretive Dance} %% default
 \DeclareOption{CSE}{\renewcommand{\Degree}{Bachelor in Cyber Security}}
@@ -21,7 +24,8 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
 %\ProcessOptions
-% we are based off the core report class
+% we are based off the core report class so pass this through  *again*
+%
 \if@twoside%
     \LoadClass[12pt, a4paper, twoside]{report} %% twoside=true
 \else%
@@ -44,9 +48,6 @@
     \else%
         \geometry{left=25mm,right=25mm,bindingoffset=0mm, top=20mm,bottom=35mm} %% twoside=false
     \fi%
-
-% disabled due to need for two side render
-% \SetMargins{2cm}{true}{true}
 
 %% packages dealing with layout
 \RequirePackage{color}
@@ -126,7 +127,13 @@
 % set some full details
 \newcommand\ackname{Acknowledgements}
  
-
+\newcommand{\plagdeclaration}{
+    \chapter*{Declaration}
+    I declare that the work presented for assessment in this submission is my own, that it has not previously been presented for another assessment, and that work completed by others has been appropriately acknowledged.
+    \vspace{3cm} \newline
+    Name:\noindent\rule{6cm}{0.4pt} Date:\noindent\rule{4cm}{0.4pt}
+    \thispagestyle{empty} 
+}
 
 \renewcommand{\headrulewidth}{\iffloatpage{0pt}{0.4pt}}
 \pagestyle{fancy}
@@ -138,6 +145,7 @@
 \fancyhf{}\fancyhead[R]{\thepage}
 \fancyhead[L]{\iffloatpage{}{\slshape \rightmark}}
 
+\newcommand{\mylocation}{Kristiansand, Norway}
 
 \renewcommand{\maketitle}{%
 	\begin{titlepage}%
@@ -163,12 +171,10 @@
 	\end{center}}%
 
 	\vfill\normalsize%
-	\emph{Kristiansand, Norway}\\%
-%	\ifcase\month\or
-%  January\or February\or March\or April\or May\or June\or
-%  July\or August\or September\or October\or November\or December\fi
-%  \space\number\year
-	\@date
+	\emph{\mylocation}\\%
+	\ifcase\month\or  January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi
+  \space\number\year
+	\month \year  %@date
   \end{center}%
 	\end{titlepage}%
 }

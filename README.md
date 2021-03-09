@@ -3,6 +3,7 @@
 This class is intended to be used for the production of Final Degree projects at Noroff University College.
 
 A copy of the template is available on Overleaf: https://www.overleaf.com/read/pwjjtgttbbbq
+A GitHub repository maintians current version: https://github.com/barryirwin/Uc3FDP201-2020-template/
 
 This class extends the standard report class.
 

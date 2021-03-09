@@ -2,14 +2,10 @@
 %% Inspired by   RU Computer Science Class  2010
 %% (c) Barry Irwin 2021
 
-%% CHANGELOG
-%% version 0.1a - 20210308 Initial release 
+%% CHANGELOG - see CHANGLE log file
 
 %% TODO
-%    Getting headers and footers correct
 %    Fine tuning margins to deal with two sided printing (potentially)
-%    Adding in some more examples in the main.tex
-%    Font optioning
 %    Citation templating
 
 
@@ -27,15 +23,11 @@
 
 %% Stop fonts beng too small.
 \DeclareOption{10pt}{
-  \ClassWarningNoLine{petprop}{%
+  \ClassWarningNoLine{CSE}{%
     The `10pt' option is not allowed in the `nucthesis' class}
   \OptionNotUsed
 }
-\DeclareOption{11pt}{
-  \ClassWarningNoLine{petprop}{%
-    The `11pt' option is not allowed in the `nucthesis' class}
-  \OptionNotUsed
-}
+
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions\relax
@@ -43,7 +35,7 @@
 % we are based off the core report class so pass this through  *again*
 %
 \if@twoside%
-    \LoadClass[12pt, a4paper, twoside]{report} %% twoside=true
+    \LoadClass[12pt, a4paper, twoside, openright]{report} %% twoside=true
 \else%
     \LoadClass[12pt, a4paper, oneside]{report} %% twoside=false
 \fi%
@@ -66,8 +58,8 @@
 %    \fi%
 
 %% packages dealing with layout
-\RequirePackage{geometry}
-\RequirePackage{color}
+\RequirePackage[a4paper]{geometry}
+\RequirePackage[dvipsnames]{xcolor} 
 \RequirePackage{fancybox}
 \RequirePackage{fancyhdr}
 \RequirePackage{verbatim}
@@ -91,11 +83,11 @@
 \hypersetup{
 	colorlinks=true, %set true if you want coloured links
 	linktoc=all,     %set to all if you want both sections and subsections linked
-	linkcolor=black,  %choose some color if you want links to stand out	
+	linkcolor=black,  %choose some colour if you want links to stand out	
 	citecolor=black,
 %	citecolor=blue,
     filecolor=blue,      
-    urlcolor=blue, % Urls via \url and \hyperref
+    urlcolor=blue, % URLs via \url and \hyperref
 }
 	
 \newcommand{\NUCLogo}{images/NoroffUClogoH.jpg}
@@ -144,33 +136,37 @@
 	\ifthenelse{\boolean{#3}}{\setlength{\footskip}{35pt}}% footer material
 		{\setlength{\footskip}{0pt}}
 	\setlength{\textheight}{\paperheight - \footskip - \headsep - \headheight - \topmargin - #1}
-	\setlength{\textwidth}{\paperwidth - (#1 * 2)   - (#1 / 3)}
-
+	\setlength{\textwidth}{\paperwidth - (#1 * 2) } %  - (#1 / 3)}
+    \addtolength\oddsidemargin{-0.5cm}
+    \addtolength\evensidemargin{-1cm}
+    \textwidth=\dimexpr\textwidth-1cm\relax
 	\setlength\parskip{\bigskipamount}
 	\setlength\parindent{0pt}
 	\onehalfspacing
 }
 
-\SetMargins{2.5cm}{true}{true} %2.5cm margin, enable head and foot skips
+\SetMargins{2.2cm}{true}{true} %2.5cm margin, enable head and foot skips
 %\linespread{1.5} %% 1.5 spacing for document body (dealt with above) 
 
 %rename Bibliography to references when using bibtex
 \renewcommand\bibname{References}
 % set some full details
 \newcommand\ackname{Acknowledgements}
+
+\newcommand{\keywords}[1]{\vspace{1cm}\newline\textbf{Keywords:} \textit{#1}}
  
 \newcommand{\plagdeclaration}{
     \chapter*{Declaration}
     I declare that the work presented for assessment in this submission is my own, that it has not previously been presented for another assessment, and that work completed by others has been appropriately acknowledged.
     \vspace{1.5cm} \newline
-    \textbf{Name}: \myname{}  \textbf{Date}: \today 
+    \textbf{Name}: \myname{} \hspace{2cm} \textbf{Date}: \today 
     \thispagestyle{empty} 
 }
 \newcommand{\plagdeclarationblank}{
     \chapter*{Declaration}
     I declare that the work presented for assessment in this submission is my own, that it has not previously been presented for another assessment, and that work completed by others has been appropriately acknowledged.
     \vspace{3cm} \newline
-    \textbf{Name}: \noindent\rule{6cm}{0.4pt} \textbf{Date}: \noindent\rule{4cm}{0.4pt} 
+    \textbf{Name}: \noindent\rule{5.5cm}{0.4pt}  \hspace{1.5cm} \textbf{Date}: \noindent\rule{4cm}{0.4pt} 
     \thispagestyle{empty} 
 } 
 
@@ -271,7 +267,54 @@
       \fi}
       {\if@twocolumn\else\endquotation\fi}
 \fi
+%% Providing Section guidence
+\newcommand{\guidebox}[1]{
+    \colorbox{gray!20}{%
+    \begin{minipage}{0.9\textwidth}
+    \small{\textbf{\textsc{NUC Final Degree Project Guidance}}:\newline}
+    \noindent\rule{\textwidth}{0.4pt}
+    \small{\textit{#1}}
+    \end{minipage}}
+    \newline
+}
 
+\newcommand{\guideack}{\guidebox{Your Acknowledgements are generally free form in structure. You should include  anyone who has assisted you with the project. Any funders of the research (or your studies)  are typically mentioned here as well. This must \textbf{not} exceed one page.}}
+
+\newcommand{\guideintro}{\guidebox{The Introduction sets the scene, contextualises your research and provides an overview of the project. This chapter contains a number of commonly used sections. At a minimum you should define and populate the following:
+    \begin{enumerate}
+        \item Problem Statement
+        \item Research objectives
+        \item Scope and Limits
+%\section{Document Conventions} %enable if you have specific formatting styles you want to tell the reader about
+        \item Document Structure
+    \end{enumerate}
+    This chapter justifies your research and limits the scope of your investigation.}}
+\newcommand{\guidelit}{\guidebox{The Literature Review has two primary goals it needs to address.
+        \begin{enumerate}
+        \item \textbf{A review of related literature and research}
+        Looking at what other researchers have investigated in the field. This is important for basing your own work on and for having something to compare your results to in later chapters.
+        \item \textbf{Technology review and primer}
+        An exploration of appropriate technologies that you will be using in your investigation. it also is where you need to explain any particularly technical concepts that readers may not be familiar with.
+    \end{enumerate}
+The majority of your references should appear in your literature review chapter. Any major work(s) you rely on later should be introduced here.    
+}}
+\newcommand{\guideanalysis}{\guidebox{\textbf{Analysis} based projects need to detail the process of Data collection, processing and analysis. Where did you collect data ? How did you collect it? How did you store and process your data?  Analysis is about how results were produced.  The interpretation of these results is dealt with in the following chapter.}}
+\newcommand{\guideimplementation}{\guidebox{\textbf{Implementation} driven projects usually aim at the production of an `artefact' - be this code, a dataset or a physical object such as a game. This chapter needs to discuss both the design process followed (why did you make it like this?) and the resulting implementation approach (how did you build it?). Any design/implementation trade offs made should be discussed.}}
+\newcommand{\guideresults}{\guidebox{The Results chapter is where the results of your investigation are presented. These can take many different forms based on how the project was conducted. Key here is to critically evaluate your results and to compare and contrast with results form the larger body of literature in the field (as you introduced in the Literature Review Chapter earlier)}}
+\newcommand{\guideconclusion}{\guidebox{The Conclusion sums up the work and draws the presentation of your research presentation and argument to a close.  There should be no new information or facts relating to the research introduced in this section. Typically this chapter is structured as follows:
+    \begin{enumerate}
+        \item {Introduction}
+        Draws together the preceding chapters
+        \item {Summary of Research}
+        Briefly summaries the work conducted 2-3 sentences per chapter is sufficient
+        \item {Research Objectives}
+        For each of your research objectives you laid out int he Introduction you should evaluate the degree to which it has been met (and provide a link back to the section(s) which justify this).
+        \item {Research Contribution}
+        Sum up what contribution your research has made, clearly define any outputs or artifacts produced.
+        \item {Future Work}
+        You built your work on the `shoulders of giants' . How could someone continue to build on your work. Choose 3-4 areas of further exploration and/or expansion of your work.
+    \end{enumerate}
+}}
 
 %% code for handling word counts
 \newcommand{\detailtexcount}[1]{%
@@ -301,13 +344,11 @@
 \newcommand{\NUCwordcount}[1]{
     \chapter*{Word count metrics}
     \framebox{%
-    \begin{minipage}{0.9\textwidth}
-    \textbf{Noroff Word Count}:\\
+    \begin{minipage}{0.95\textwidth}
+    \textbf{NUC Final Degree Project Word Count}:\\
     \noroffcount{#1}
+    NOTE: References are excluded.
     \end{minipage}}
 }
 
-
-
-%Details \\
-%\detailtexcount{main}
+%%% ---------------------------- END OF CLASS ----------------------------

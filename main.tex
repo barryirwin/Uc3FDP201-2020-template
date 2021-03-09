@@ -6,46 +6,54 @@
 
 %% CONFIGURATION
 \newcommand{\myname}{A.N.Other}
-\newcommand{\mytitle}{My super awesome title}
-%if you want to change your location form Kristandand, Norway edit the following:
+\newcommand{\mytitle}{My Super Awesome title}
+%if you want to change your location from "Kristansand, Norway" edit the following:
 %\renewcommand{\mylocation}{Hobbiton, The Shire}
 
 
+%% == chose your font : you can enable helvetica for on screen reading to start with.
+%%\usepackage{helvet}
+%%\renewcommand{\familydefault}{\sfdefault}
+%% New Century Schoolbook is recommended
+\usepackage{newcent} % see http://igor.gold.ac.uk/~mas01rwb/latex.html if issues with math mode
 %% ======= BEGIN PACKAGES==
 %% some of these packages may be useful for you
 \usepackage{subfig}   % used for sub-figures
 \usepackage{lipsum}  %disable when implementing this generate space filling text
-%\usepackage{todonotes} % https://ctan.org/pkg/todonotes?lang=en make notes for yourself and supervisor
+%\usepackage{todonotes} % make notes for yourself and supervisor
+                        % See http://tug.ctan.org/macros/latex/contrib/todonotes/todonotes.pdf
 %\usepackage{wrapfig}  % allows text wrapping around figures
 %\usepackage{tabularx} % tables with adjustable width columns
 %\usepackage{tablefootnote}
-%\usepackage{booktabs} % makes pretty tables (needs to be used explicitly) https://ctan.org/pkg/booktabs?lang=en
+%\usepackage{booktabs} % makes pretty tables (needs to be used explicitly)
+                       % See https://ctan.org/pkg/booktabs?lang=en
 %\usepackage{listings}
+%\usepackage{comment} % allows you to comment out large blocks of code
+                      % without doing line by line
+\usepackage{quotchap}
 
 
-
-%% -------  START Title Page -------------
+%% ----------------------------  START Title Page ---------------------------
 \title{\mytitle}
 \author{\myname}
-\date{\today}
 
 \begin{document}
-
 \maketitle
 \titlepage
 \thispagestyle{empty} 
-%% -------  END Title Page -------------
-%% -------  START Front matter ----------
-\plagdeclaration %auto populating variant
-% \plagdeclarationblank % provides blank lines to print and fill in
+%% ----------------------------  END Title Page ----------------------------
 
+%% ----------------------------  START Front matter ----------------------------
+\plagdeclaration %auto populating variant
+%\plagdeclarationblank % provides blank lines to print and fill in
 
 \frontmatter
-
 \begin{abstract}
 %    \lipsum[1-12][1-7]
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut,placerat ac, adipiscing vitae, felis.  Curabitur dictum gravida mauris.  Nam arcu libero,nonummy  eget,  consectetuer  id,  vulputate  a,  magna.   Donec  vehicula  augue  eu  neque.Pellentesque  habitant  morbi  tristique  senectus  et  netus  et  malesuada  fames  ac  turpisegestas.  Mauris ut leo
+\keywords{Twirling, singing, prancing}
 \end{abstract}
+
 %\chapter*{ACM Classification}
 %% This section includes a classification of your research domain as used by the ACM CCS - see https://www.acm.org/publications/class-2012
 %% generate your code at: https://dl.acm.org/ccs and paste below
@@ -63,9 +71,8 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestib
 %\printccsdesc
 
 \chapter*{Acknowledgements}
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut,placerat ac, adipiscing vitae, felis.  Curabitur dictum gravida mauris.  Nam arcu libero,nonummy  eget,  consectetuer  id,  vulputate  a,  magna.   Donec  vehicula  augue  eu  neque.Pellentesque  habitant  morbi  tristique  senectus  et  netus  et  malesuada  fames  ac  turpisegestas.  Mauris ut leo
-%\noindent\rule[0.5ex]{1\columnwidth}{1pt}
-\pagestyle{fancy}
+\guideack % delete me when you know what goes in this section
+
 \tableofcontents{}
 \newpage
 \listoffigures{}
@@ -75,36 +82,68 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestib
 %\lstlistoflistings{} % can enable if you have code listings (requires the listings package)
 \newpage
 
-%% -------  END Frontmatter ----------
-%% -------  START Document Body ----------
+%% ----------------------------  END Front matter ----------------------------
+
+
+%% ----------------------------  START Document Body ----------------------------
 \mainmatter
 %%% Add in body content or chapters here.
 %%  a standard report structure has the following chapters.  
-%%  IF you need to deviate from these you must discuss with your supervisor.
+%%  1. Introduction
+%%  2. Literature Review
+%%  3. Data Gathering & Analysis / Design & Implementation
+%%  4. Results
+%%  5. Conclusion
+%%  If you need to deviate from these you must discuss with your supervisor.
 \chapter{Introduction}
-\lipsum
-\lipsum
+\guideintro  % delete me when you know what goes in this chapter
+
+\section{Problem Statement}
+\section{Research objectives}
+\section{Scope and Limits}
+%\section{Document Conventions} %enable if you have specific formatting styles you want to tell the reader about
+\section{Document Structure}
+
+
 \chapter{Literature Review}
 %This is an example of using todonotes
 %\todo{I need to write this!}
+
+\guidelit % delete me when you know what goes in this chapter
+
 \chapter{Analysis/Implementation}
-\begin{figure}[h!]%
+\guideanalysis  % delete me when you know what goes in this chapter
+
+\guideimplementation  % delete me when you know what goes in this chapter
+
+\begin{figure}[ht]%
     \centering
     \subfloat[sample1]{\includegraphics[width=3cm]{\NUCLogo } }%
     \subfloat[sample2]{\includegraphics[width=4cm]{\NUCLogo } }%
     \caption{Example sample figs}%
     \label{fig:samplefigs}%
 \end{figure}
-\chapter{Results}
-This is a "quotation" to show correct use of `"' and `"' .
-\chapter{Conclusion}
 
+\chapter{Results}
+\guideresults % delete me when you know what goes in this chapter
+
+This is a "quotation" to show correct use of `"' and `"' .
+
+
+
+
+\chapter{Conclusion}
+\guideconclusion % delete me when you know what goes in this chapter
+\section{Introduction}
+\section{Summary of Research}
+\section{Research Objectives}
+\section{Research Contribution}
 \section{Future Work}
 %% you could also keep each chapter in a separate file and include them here:
 %\input{ch1/introduction}
 %% This is recommended for making your life easier managing each chapter and any images related to it -- see the ch1 example directory.
 
-%% ------ END Document Body ----------
+%% ---------------------------- END Document Body ----------------------------
 %% -------  START References ----------
 %% References
 %% -------  END References ----------
@@ -116,7 +155,7 @@ This is a "quotation" to show correct use of `"' and `"' .
 \chapter{Sample Appendix}
 %% -------  END Appendices ----------
 
-%add in wordcound section:
-% change main to the name of the file to count, by default main will process allinputs then process.
+%add in wordcount section:
+% change main to the name of the file to count, by default main will process all \input files and then start the count process.
 \NUCwordcount{main}
 \end{document}

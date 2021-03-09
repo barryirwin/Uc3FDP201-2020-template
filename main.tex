@@ -1,5 +1,5 @@
 %% define your degree by using the code CSE, DFO or ADS below
-\documentclass[DFO]{nucthesis}
+\documentclass[]{nucthesis}
 %% optimises document for double sided printing.
 %\documentclass[twoside]{nucthesis} % adds 10mm extra for binding
 
@@ -14,12 +14,13 @@
 %% ======= BEGIN PACKAGES==
 %% some of these packages may be useful for you
 \usepackage{subfig}   % used for sub-figures
-%\usepackage{lipsum}  %disable when implementing this generate space filling text
+\usepackage{lipsum}  %disable when implementing this generate space filling text
 %\usepackage{todonotes} % https://ctan.org/pkg/todonotes?lang=en make notes for yourself and supervisor
-\usepackage{wrapfig}  % allows text wrapping around figures
+%\usepackage{wrapfig}  % allows text wrapping around figures
 %\usepackage{tabularx} % tables with adjustable width columns
 %\usepackage{tablefootnote}
 %\usepackage{booktabs} % makes pretty tables (needs to be used explicitly) https://ctan.org/pkg/booktabs?lang=en
+%\usepackage{listings}
 
 
 
@@ -35,10 +36,15 @@
 \thispagestyle{empty} 
 %% -------  END Title Page -------------
 %% -------  START Front matter ----------
-\plagdeclaration
-\pagenumbering{roman}
+\plagdeclaration %auto populating variant
+% \plagdeclarationblank % provides blank lines to print and fill in
+
+
+\frontmatter
+
 \begin{abstract}
-    
+%    \lipsum[1-12][1-7]
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut,placerat ac, adipiscing vitae, felis.  Curabitur dictum gravida mauris.  Nam arcu libero,nonummy  eget,  consectetuer  id,  vulputate  a,  magna.   Donec  vehicula  augue  eu  neque.Pellentesque  habitant  morbi  tristique  senectus  et  netus  et  malesuada  fames  ac  turpisegestas.  Mauris ut leo
 \end{abstract}
 %\chapter*{ACM Classification}
 %% This section includes a classification of your research domain as used by the ACM CCS - see https://www.acm.org/publications/class-2012
@@ -57,25 +63,27 @@
 %\printccsdesc
 
 \chapter*{Acknowledgements}
-
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut,placerat ac, adipiscing vitae, felis.  Curabitur dictum gravida mauris.  Nam arcu libero,nonummy  eget,  consectetuer  id,  vulputate  a,  magna.   Donec  vehicula  augue  eu  neque.Pellentesque  habitant  morbi  tristique  senectus  et  netus  et  malesuada  fames  ac  turpisegestas.  Mauris ut leo
 %\noindent\rule[0.5ex]{1\columnwidth}{1pt}
+\pagestyle{fancy}
 \tableofcontents{}
 \newpage
 \listoffigures{}
 \newpage
 \listoftables{}
 \newpage
-
+%\lstlistoflistings{} % can enable if you have code listings (requires the listings package)
+\newpage
 
 %% -------  END Frontmatter ----------
 %% -------  START Document Body ----------
-\linespread{1.5} %% 1.5 spacing for document body
-\pagenumbering{arabic}
+\mainmatter
 %%% Add in body content or chapters here.
 %%  a standard report structure has the following chapters.  
 %%  IF you need to deviate from these you must discuss with your supervisor.
 \chapter{Introduction}
-
+\lipsum
+\lipsum
 \chapter{Literature Review}
 %This is an example of using todonotes
 %\todo{I need to write this!}
@@ -84,17 +92,11 @@
     \centering
     \subfloat[sample1]{\includegraphics[width=3cm]{\NUCLogo } }%
     \subfloat[sample2]{\includegraphics[width=4cm]{\NUCLogo } }%
-    \caption{sample figs}%
+    \caption{Example sample figs}%
     \label{fig:samplefigs}%
 \end{figure}
 \chapter{Results}
-\begin{figure}[h!]%
-    \centering
-    \subfloat[sample1]{\includegraphics[width=3cm]{\NUCLogo} }%
-    \subfloat[sample2]{\includegraphics[width=4cm]{\NUCLogo} }%
-    \caption{sample figs2}%
-    \label{fig:samplefigs2}%
-\end{figure}
+This is a "quotation" to show correct use of `"' and `"' .
 \chapter{Conclusion}
 
 \section{Future Work}

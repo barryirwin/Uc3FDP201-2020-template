@@ -50,6 +50,7 @@
 \frontmatter
 \begin{abstract}
 %    \lipsum[1-12][1-7]
+\guideabs % delete me when you know what goes in this section
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestibulum ut,placerat ac, adipiscing vitae, felis.  Curabitur dictum gravida mauris.  Nam arcu libero,nonummy  eget,  consectetuer  id,  vulputate  a,  magna.   Donec  vehicula  augue  eu  neque.Pellentesque  habitant  morbi  tristique  senectus  et  netus  et  malesuada  fames  ac  turpisegestas.  Mauris ut leo
 \keywords{Twirling, singing, prancing}
 \end{abstract}
@@ -99,14 +100,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestib
 \guideintro  % delete me when you know what goes in this chapter
 
 \section{Problem Statement}
-\section{Research objectives}
+\section{Research Objectives}
 \section{Scope and Limits}
 %\section{Document Conventions} %enable if you have specific formatting styles you want to tell the reader about
 \section{Document Structure}
 
 
 \chapter{Literature Review}
-%This is an example of using todonotes
+%This is an example of using the todonotes package (enable above)
 %\todo{I need to write this!}
 
 \guidelit % delete me when you know what goes in this chapter
@@ -127,7 +128,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestib
 \chapter{Results}
 \guideresults % delete me when you know what goes in this chapter
 
-This is a "quotation" to show correct use of `"' and `"' .
+This is a "quotation" to show the correct use of `"' and `"'.
 
 
 
@@ -149,13 +150,13 @@ This is a "quotation" to show correct use of `"' and `"' .
 %% -------  END References ----------
 
 %% -------  START Appendices ----------
-%% appendices contain additional material and are numbered A, B, C etc beyond this point
+%% appendices contain additional material and are numbered A, B, C etc. beyond this point
 %% you can use \chapter to differentiate them. Comment these out if not needed
 \appendix
 \chapter{Sample Appendix}
 %% -------  END Appendices ----------
 
-%add in wordcount section:
-% change main to the name of the file to count, by default main will process all \input files and then start the count process.
+% Word count section
+% Change <main> below to the name of the file to count. By default main will process all \input files and then start the count process.
 \NUCwordcount{main}
 \end{document}

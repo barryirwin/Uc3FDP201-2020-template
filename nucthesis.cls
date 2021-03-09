@@ -5,14 +5,14 @@
 %% CHANGELOG - see CHANGLE log file
 
 %% TODO
-%    Fine tuning margins to deal with two sided printing (potentially)
-%    Citation templating
+%    Fine-tuning margins to deal with two sided printing (potentially)
+%    Citation template
 
 
 
 %---------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{nucthesis}[2021/03/08 Noroff University College Thesis Class]
+\ProvidesClass{nucthesis}[2021/03/09 Noroff University College Thesis Class]
 
 \def\currversion{March 10, 2021} 
 
@@ -21,7 +21,7 @@
 \DeclareOption{DFO}{\renewcommand{\Degree}{Bachelor in Digital Forensics}} 
 \DeclareOption{ADS}{\renewcommand{\Degree}{Bachelor in Applied Data Science}}
 
-%% Stop fonts beng too small.
+%% Stop fonts being too small.
 \DeclareOption{10pt}{
   \ClassWarningNoLine{CSE}{%
     The `10pt' option is not allowed in the `nucthesis' class}
@@ -268,7 +268,7 @@
       {\if@twocolumn\else\endquotation\fi}
 \fi
 %% Providing Section guidence
-\newcommand{\guidebox}[1]{
+\newcommand{\guidebox}[1]{%
     \colorbox{gray!20}{%
     \begin{minipage}{0.9\textwidth}
     \small{\textbf{\textsc{NUC Final Degree Project Guidance}}:\newline}
@@ -278,9 +278,13 @@
     \newline
 }
 
-\newcommand{\guideack}{\guidebox{Your Acknowledgements are generally free form in structure. You should include  anyone who has assisted you with the project. Any funders of the research (or your studies)  are typically mentioned here as well. This must \textbf{not} exceed one page.}}
 
-\newcommand{\guideintro}{\guidebox{The Introduction sets the scene, contextualises your research and provides an overview of the project. This chapter contains a number of commonly used sections. At a minimum you should define and populate the following:
+\newcommand{\guideabs}{\guidebox{Your Abstract should succinctly sum up your work in 200-300 words, You should include a brief rational for the research, the approach taken and the results/findings and /or details of the artefact produced. Choose 3-5 keywords to include in the \\keywords{} section below. This must \textbf{not} exceed one page.}\newline}
+
+
+\newcommand{\guideack}{\guidebox{Your Acknowledgements are generally free form in structure. You should include anyone who has assisted you with the project. Any funders of the research (or your studies) are typically mentioned here as well. This must \textbf{not} exceed one page.}}
+
+\newcommand{\guideintro}{\guidebox{The Introduction sets the scene, contextualises your research, and provides an overview of the project. This chapter contains some commonly used sections. At a minimum you should define and populate the following:
     \begin{enumerate}
         \item Problem Statement
         \item Research objectives
@@ -292,15 +296,15 @@
 \newcommand{\guidelit}{\guidebox{The Literature Review has two primary goals it needs to address.
         \begin{enumerate}
         \item \textbf{A review of related literature and research}
-        Looking at what other researchers have investigated in the field. This is important for basing your own work on and for having something to compare your results to in later chapters.
+        Looking at what other researchers have investigated in the field. This is important for basing your work on and for having something to compare your results to in later chapters.
         \item \textbf{Technology review and primer}
         An exploration of appropriate technologies that you will be using in your investigation. it also is where you need to explain any particularly technical concepts that readers may not be familiar with.
     \end{enumerate}
 The majority of your references should appear in your literature review chapter. Any major work(s) you rely on later should be introduced here.    
 }}
-\newcommand{\guideanalysis}{\guidebox{\textbf{Analysis} based projects need to detail the process of Data collection, processing and analysis. Where did you collect data ? How did you collect it? How did you store and process your data?  Analysis is about how results were produced.  The interpretation of these results is dealt with in the following chapter.}}
-\newcommand{\guideimplementation}{\guidebox{\textbf{Implementation} driven projects usually aim at the production of an `artefact' - be this code, a dataset or a physical object such as a game. This chapter needs to discuss both the design process followed (why did you make it like this?) and the resulting implementation approach (how did you build it?). Any design/implementation trade offs made should be discussed.}}
-\newcommand{\guideresults}{\guidebox{The Results chapter is where the results of your investigation are presented. These can take many different forms based on how the project was conducted. Key here is to critically evaluate your results and to compare and contrast with results form the larger body of literature in the field (as you introduced in the Literature Review Chapter earlier)}}
+\newcommand{\guideanalysis}{\guidebox{\textbf{Analysis} based projects need to detail the process of data collection, processing, and analysis. Where did you collect data? How did you collect it? How did you store and process your data?  An analysis is about how results were produced.  The interpretation of these results is dealt with in the following chapter.}}
+\newcommand{\guideimplementation}{\guidebox{\textbf{Implementation} driven projects usually aim at the production of an `artefact' - be this code, a dataset, or a physical object such as a game. This chapter needs to discuss both the design process followed (why did you make it like this?) and the resulting implementation approach (how did you build it?). Any design/implementation trade-offs made should be discussed.}}
+\newcommand{\guideresults}{\guidebox{The Results chapter is where the results of your investigation are presented. These can take many different forms based on how the project was conducted. The key here is to critically evaluate your results and to compare and contrast with results from the larger body of literature in the field (as you introduced in the Literature Review Chapter earlier)}}
 \newcommand{\guideconclusion}{\guidebox{The Conclusion sums up the work and draws the presentation of your research presentation and argument to a close.  There should be no new information or facts relating to the research introduced in this section. Typically this chapter is structured as follows:
     \begin{enumerate}
         \item {Introduction}
@@ -308,11 +312,11 @@ The majority of your references should appear in your literature review chapter.
         \item {Summary of Research}
         Briefly summaries the work conducted 2-3 sentences per chapter is sufficient
         \item {Research Objectives}
-        For each of your research objectives you laid out int he Introduction you should evaluate the degree to which it has been met (and provide a link back to the section(s) which justify this).
+        For each of your research objectives you laid out in the Introduction you should evaluate the degree to which it has been met (and provide a link back to the section(s) which justify this).
         \item {Research Contribution}
-        Sum up what contribution your research has made, clearly define any outputs or artifacts produced.
+        Sum up what contribution your research has made, clearly define any outputs or artefacts produced.
         \item {Future Work}
-        You built your work on the `shoulders of giants' . How could someone continue to build on your work. Choose 3-4 areas of further exploration and/or expansion of your work.
+        You built your work on the `shoulders of giants'. How could someone continue to build on your work? Choose 3-4 areas of further exploration and/or expansion of your work.
     \end{enumerate}
 }}
 

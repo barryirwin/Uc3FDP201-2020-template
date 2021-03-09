@@ -6,7 +6,7 @@
 
 %% CONFIGURATION
 \newcommand{\myname}{A.N.Other}
-\newcommand{\mytitle}{My Super Awesome title}
+\newcommand{\mytitle}{My Super Awesome Title}
 %if you want to change your location from "Kristansand, Norway" edit the following:
 %\renewcommand{\mylocation}{Hobbiton, The Shire}
 
@@ -32,10 +32,17 @@
                       % without doing line by line
 \usepackage{quotchap}
 
+%% ----------------------------  START Citation Support ----------------------------
+    %% Add your citation system of choice in here - biber or bibtex.
+    %% remember author, year citation stile is required *not* numbers as in IEEE
+%% ----------------------------  END Citation Support ----------------------------
+
 
 %% ----------------------------  START Title Page ---------------------------
 \title{\mytitle}
 \author{\myname}
+
+
 
 \begin{document}
 \maketitle
@@ -55,21 +62,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Ut purus elit, vestib
 \keywords{Twirling, singing, prancing}
 \end{abstract}
 
-%\chapter*{ACM Classification}
-%% This section includes a classification of your research domain as used by the ACM CCS - see https://www.acm.org/publications/class-2012
-%% generate your code at: https://dl.acm.org/ccs and paste below
-%\begin{CCSXML}
-%<ccs2012>
-%<concept>
-%<concept_id>10010583</concept_id>
-%<concept_desc>Hardware</concept_desc>
-%<concept_significance>500</concept_significance>
-%</concept>
-%</ccs2012>
-%\end{CCSXML}
-%
-%\ccsdesc[500]{Hardware}
-%\printccsdesc
+
 
 \chapter*{Acknowledgements}
 \guideack % delete me when you know what goes in this section
@@ -140,13 +133,18 @@ This is a "quotation" to show the correct use of `"' and `"'.
 \section{Research Objectives}
 \section{Research Contribution}
 \section{Future Work}
-%% you could also keep each chapter in a separate file and include them here:
-%\input{ch1/introduction}
-%% This is recommended for making your life easier managing each chapter and any images related to it -- see the ch1 example directory.
+
+
+%% You could also keep each chapter in a separate file and include them here:
+%  \input{ch1/introduction}
+%% This is highly recommended for making your life easier managing each chapter 
+%% and any images related to it -- see the ch1 example directory.
 
 %% ---------------------------- END Document Body ----------------------------
+
+
 %% -------  START References ----------
-%% References
+    %% include the appropriate code to generate your reference list based on your choice of bibtex or biber.
 %% -------  END References ----------
 
 %% -------  START Appendices ----------
